@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = [];
+        for (let i = 0; i < 10; i++) {
+            a.push(parseInt(+prompt(`Mời bạn nhập số nguyên thứ ${i + 1}`)));
+        }
+        let b = a[0];
+        for (let i = 1; i < a.length; i++) {
+            if (b < a[i]) {
+                b = a[i];
+            }
+        }
+        if (a[0] === undefined) {
+            console.log('không có số lớn nhất');
+        } else {
+            console.log(`số lớn nhất: ${b}`);
+            for (let index in a) {
+                if (a[index] === b) {
+                    console.log(`vị trí: ${index}`);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
