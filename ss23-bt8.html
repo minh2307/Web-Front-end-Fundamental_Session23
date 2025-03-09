@@ -11,30 +11,33 @@
     <script>
         let n = +prompt("Mời bạn nhập vào n phần tử: ");
         let a = [];
-        for (let i = 0; i < n; i++) {
-            a.push(+prompt(`Mời bạn nhập vào phần tử thứ ${i + 1} của mảng: `));
-        }
-        for (let i = 0; i < a.length - 1; i++) {
-            for (let j = 0; j < a.length - 1 - i; j++) {
-                if (a[j] > a[j + 1]) {
-                    let temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
+        if (n === 0 || n < 0) {
+            console.log(n === 0 ? 'Mảng không có phần tử nào' : 'Số lượng phần tử không được bé hơn 0');
+        } else {
+            for (let i = 0; i < n; i++) {
+                a.push(+prompt(`Mời bạn nhập vào phần tử thứ ${i + 1} của mảng: `));
+            }
+            for (let i = 0; i < a.length - 1; i++) {
+                for (let j = 0; j < a.length - 1 - i; j++) {
+                    if (a[j] > a[j + 1]) {
+                        let temp = a[j];
+                        a[j] = a[j + 1];
+                        a[j + 1] = temp;
+                    }
                 }
             }
-        }
-        let f = 0, f1 = 1, flag = 0;
-        for (let value of a) {
-            if (value !== f) {
-                flag++;
-                break;
+            let f = 0, f1 = 1, flag = 0;
+            for (let value of a) {
+                if (value !== f) {
+                    flag++;
+                    break;
+                }
+                let temp = f1;
+                f1 = f + f1;
+                f = temp;
             }
-            let temp = f1;
-            f1 = f + f1;
-            f = temp;
+            console.log(flag === 1 ? `Không phải là dãy fibonacci` : `là dãy fibonacci`);
         }
-        console.log(flag === 1 ? `Không phải là dãy fibonacci` : `là dãy fibonacci`);
-
     </script>
 </body>
 
